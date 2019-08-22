@@ -1,2 +1,2 @@
 # LeetCode
- Used for saving leetcode solutions
+ Save leetcode solutions and train of thought
