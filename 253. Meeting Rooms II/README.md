@@ -1,10 +1,10 @@
-# 252. Meeting Rooms
-## Solution 0
-Apply brute force algorithm to solve the problem
-* Time Complexity: O(N^2)
-* Space Complexity: O(1)
-
+# 253. Meeting Rooms II
 ## Solution 1
-Sort the given array based on each start time of intervals and then apply greedy algorithm to solve the problem
+Sort the intervals array based on each of start time of every interval. Then apply min heap for keeping the most closing end time. If the end time < the start time of the selected interval time, the two times are compatible. Otherwise, we need to open a new room for it, which means we put the time into the mim heap. Finally, the length of the min heap is the number of rooms we need.
+* Time Complexity: O(NlogN)
+* Space Complexity: O(N)
+
+## Solution 2
+Sort the intervals array based on each of start time of every interval. Then apply min heap for keeping the most closing end time. If the end time < the start time of the selected interval time, the two times are compatible. Otherwise, we need to open a new room for it, which means we put the time into the mim heap. Finally, the length of the min heap is the number of rooms we need.
 * Time Complexity: O(NlogN)
 * Space Complexity: O(1)
