@@ -1,22 +1,14 @@
 class Solution:
-    def decodeString(self, s: str) -> str:
-        if not s:
-            return s
+    def maximalSquare(self, matrix: List[List[str]]) -> int:
+        dp = [[0 for _ in range(len(matrix[0]))] for __ in range(len(matrix))]
+        maxArea = 0
         
-        stack = []; curNum = 0; curString = ''
-        for c in s:
-            if c == '[':
-                stack.append(curString)
-                stack.append(curNum)
-                curNum = 0
-                curString = ''
-            elif c == ']':
-                num = stack.pop()
-                prevString = stack.pop()
-                curString = prevString + num * curString
-            elif c.isdigit():
-                curNum = curNum * 10 + int(c)
-            else:
-                curString += c
-                
-        return curString
+        for i in range(len(matrix)):
+            for j in range(len(matrix[0])):
+                if i == 0 or j == 0:
+                    dp[i][j] = int(matrix[i][j])
+                elif int(matrix[i][j]) == 1:
+                    dp[i][j] = min(dp[i - 1][j - 1], dp[i][j - 1], dp[i - 1][j]) + 1
+                maxArea = max(maxArea, dp[i][j])
+        
+        return maxArea*maxArea
