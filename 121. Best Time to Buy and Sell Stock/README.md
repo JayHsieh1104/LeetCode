@@ -1,10 +1,15 @@
 # 121. Best Time to Buy and Sell Stock
-## Solution 1
-Use DP to solve the problem.
-* Time Complexity: O(N)
-* Space Complexity: O(N)
 
-## Solution 2
-Use DP to solve the problem. Because we only need to store the maximum profit, we can use only one variable to record it. We don't need to record all the list for all the profit at position i. Thus, the space complexity is O(1).
+## Solution 1 -- DP ?
+
+* Time Complexity: O(N^2)
+  
+* Space Complexity: O(1)
+
+## Solution 2 -- One Pass
+
+Find the largest interval between minNum and the current number
+
 * Time Complexity: O(N)
+
 * Space Complexity: O(1)
