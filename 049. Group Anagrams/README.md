@@ -1,20 +1,9 @@
-# 122. Best Time to Buy and Sell Stock II
+# 49. Group Anagrams
 
-## Solution 1 - Brute Force
+## Solution 1
 
-* Time Complexity: O(N^N)
-* Space Complexity: O(1)
+Visit each string and count the chars in the string. Then, convert each counted result as a tuple object and store as a key in a dictionary. Finally, output the values of the dictionary.
 
-## Solution 2 - Peak and Vally method
+* Time Complexity: O(NM), M = the average number of char in each string.
 
-Accumulate each height(Peak - Vally).
-
-* Time Complexity: O(N)
-* Space Complexity: O(1)
-
-## Solution 3 - simplied sol 2
-
-Accumulate each height which having positive slope
-
-* Time Complexity: O(N)
-* Space Complexity: O(1)
+* Space Complexity: O(NM)

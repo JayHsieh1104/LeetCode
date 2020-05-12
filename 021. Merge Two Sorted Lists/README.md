@@ -1,31 +1,17 @@
 # 021. Merge Two Sorted Lists
+
 ## Solution 1
-Create a new listNode to point the head of the linked list, and then build the list iteratively.
+
+Use two pointers to build the list iteratively.
+
 * Time Complexity: O(N + M)
+
 * Space Complexity: O(1)
 
-### Pros
-1. More convenient to hold the list.
+## Solution 2 
 
-### Cons
-1. Creating a new listNode might require many resource allocations
+Build the list recursively. The idea is that recursively go to the bottom of the list. Then build the new list from the bottom to top. 
 
-## Solution 2
-Compared to sol 1, the solution does not need to create a new listNode, just build the list recursively.
 * Time Complexity: O(N + M)
-* Space Complexity: O(1)
 
-### Pros
-1. Doesn't need to create a new nodeList.
-
-### Cons
-1. Could cause stack overflow if the length of the list is very long.
-
-##Thinking
-Sometimes, in industrial projects, it's not trivial to create a ListNode which might require many resource allocations or inaccessible dependencies (we need to mock them).
-
-So ideally, we should pick up either the head of l1 or l2 as the head other than creating a new one, which however makes the initialization step tedious.
-
-But during an interview, I would rather create a new ListNode as list holder, but communicate with the interviewer that I'm aware of the potential issue, and would improve it if the interviewer thinks this is a big deal.
-
-But anyway, as long as we communicate this concerning properly with the interviewer, I don't think it's a big deal here.
+* Space Complexity: O(N + M)
