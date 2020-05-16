@@ -17,7 +17,7 @@ class TimeMap:
             hi = len(self.mDict[key])
             
             while lo < hi:
-                mid = int((lo + hi) / 2)
+                mid = lo + (hi - lo) // 2
                 if self.mDict[key][mid][0] <= timestamp:
                     lo = mid + 1
                 else:
