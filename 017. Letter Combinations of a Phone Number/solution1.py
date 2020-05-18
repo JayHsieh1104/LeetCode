@@ -12,13 +12,13 @@ class Solution:
             '9': ['w', 'x', 'y', 'z']
         }
         
-        def backtracking(combination='', current_position=0):
-            if len(combination) == digits_length:
+        def backtracking(combination='', suffix=digits):
+            if suffix=='':
                 res.append(combination)
                 return
             
-            for letter in mDict[digits[current_position]]:
-                backtracking(combination+letter, current_position+1)
+            for digit in mDict[suffix[0]]:
+                backtracking(combination+digit, suffix[1:])
         
         res = []
         if digits:
