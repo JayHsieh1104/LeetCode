@@ -20,7 +20,7 @@
 
 * Time Complexity: O(KN), K = the number of linked list in lists, N = the number of elements in the longest linked list.
 
-* Space Complexity: O(KN)
+* Space Complexity: O(1)
 
 ## Solution 3
 
@@ -38,7 +38,7 @@
 
 * Space Complexity: O(1)
 
-## Solution 4
+## Solution 5
 
 1. Pick up k lists and merge each pair.
 
