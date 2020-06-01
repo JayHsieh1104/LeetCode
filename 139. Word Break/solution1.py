@@ -12,9 +12,9 @@ class Solution:
                 if word in remain_string:
                     space = '#' * len(word)
                     ret = DFS(remain_string.replace(word, space))
-                    memo[remain_string.replace(word, space)] = False
-                if ret:
-                    break
+                    if ret:
+                        break
+                    memo[remain_string.replace(word, space)] = False 
             return ret
         memo = {}
         return DFS(s)

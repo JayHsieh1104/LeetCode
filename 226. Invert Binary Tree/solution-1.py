@@ -15,4 +15,4 @@ class Solution:
 				root.left = self.invertTree(root.right)
 				root.right = self.invertTree(root.left)
             """
-        	return root
+        return root
