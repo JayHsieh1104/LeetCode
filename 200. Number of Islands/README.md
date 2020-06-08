@@ -14,4 +14,10 @@ Use BFS algorithm to solve the problem
 
 * Time Complexity: O(MxN)
 
-* Space Complexity: O(min(M, N)), BFS would visit each node based on the order entering the queue!
+* Space Complexity: O(min(M, N)), BFS would visit each node based on the order entering the queue
+
+## Solution 3 Find-Union
+
+* Time Complexity: O(MxN)
+
+* Space Complexity: O(MxN)

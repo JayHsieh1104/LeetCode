@@ -17,7 +17,7 @@ class Solution:
             elif rank[xr] > rank[yr]:
                 parent[yr] = xr
             else:
-                parent[xr] = yr
+                parent[yr] = xr
                 rank[xr] += 1
             return False
                 
