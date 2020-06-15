@@ -8,7 +8,7 @@ Calculate all pairs [i, j]
 
 * Space Complexity: O(1)
 
-## Solution 1
+## Solution 1 (TLE)
 
 Calculate all pairs [i, j] with prefix sum
 
