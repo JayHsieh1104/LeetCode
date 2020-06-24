@@ -2,14 +2,14 @@
 
 ## Solution 1 -- BFS
 
-* Time Complexity: O(N^2), where N is the length of the bank array.
+* Time Complexity: O((N^2)*M), where N is the length of the bank array and M is the length of a genetic string.
 
-* Space Complexity: O(N + M^2), where M is the length of a gene string.
+* Space Complexity: O(N^2)
 
 ## Solution 2 -- DFS
 
 TODO:
 
-* Time Complexity: O(N^2), where N is the length of the bank array.
+* Time Complexity: O(), where N is the length of the bank array.
 
-* Space Complexity: O(N)
+* Space Complexity: O()
