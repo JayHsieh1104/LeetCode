@@ -1,2 +1,3 @@
-# LeetCode
- Save leetcode solutions and train of thought
+# LeetCode Solutions
+
+- Store my soulution of leetcode problems.
