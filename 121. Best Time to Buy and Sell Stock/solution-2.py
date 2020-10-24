@@ -1,13 +1,14 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        if len(prices) == 0:  # corner case
-            return 0
+        max_interval = 0
+        if len(prices) < 2:
+            return max_interval
         
-        maxSum = 0
-        minNum = prices[0]
+        min_num = prices[0]
         for i in range(1, len(prices)):
-            if prices[i] > prices[i - 1]:
-                maxSum = max(maxSum, prices[i] - minNum)
-            if prices[i] < minNum:
-                minNum = prices[i]
-        return maxSum
+            if min_num > prices[i]:
+                min_num = prices[i]
+            elif min_num < prices[i] and (prices[i] - min_num) > max_interval:
+                max_interval = prices[i] - min_num
+        
+        return max_interval
