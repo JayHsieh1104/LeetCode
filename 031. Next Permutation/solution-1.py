@@ -3,20 +3,17 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        i = len(nums) - 2
-        while i >= 0 and nums[i] >= nums[i+1]:
-            i -= 1
+        turning_position = len(nums) - 2
+        while turning_position > -1 and nums[turning_position] >= nums[turning_position+1]:
+            turning_position -= 1
         
-        # For case that all numbers sorted in descending order
-        if i == -1:
-            nums.sort()
+        if turning_position == -1:
+            nums.reverse()
             return
-        
-        j = len(nums) - 1
-        while j > i:
-            if nums[j] > nums[i]:
-                nums[i], nums[j] = nums[j], nums[i]
-                nums[i+1:] = reversed(nums[i+1:])
-                return
-            else:
-                j -= 1
+        else:
+            exchanged_position = len(nums) - 1
+            while turning_position < exchanged_position and nums[turning_position] >= nums[exchanged_position]:
+                exchanged_position -= 1
+        nums[turning_position], nums[exchanged_position] = nums[exchanged_position], nums[turning_position]
+        nums[turning_position+1:] = reversed(nums[turning_position+1:])
+        return
