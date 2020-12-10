@@ -4,30 +4,33 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-
-import queue
-
 class BSTIterator:
 
     def __init__(self, root: TreeNode):
-        def DFS(root: TreeNode):
-            if root == None:
-                return
-            else:
-                DFS(root.left)
-                self.q.put(root.val)
-                DFS(root.right)
-        
-        self.q = queue.Queue()
-        DFS(root)
+        self.sorted_list = []
+        self.stack = []
+        self.current_node = root
+        self.node_index = 0
+
+        while self.current_node != None or self.stack:
+            while self.current_node != None:
+                self.stack.append(self.current_node)
+                self.current_node = self.current_node.left
+            self.current_node = self.stack.pop()
+            self.sorted_list.append(self.current_node.val)
+            self.current_node = self.current_node.right
 
     def next(self) -> int:
-        return self.q.get()
-        
+        ret = self.sorted_list[self.node_index]
+        self.node_index += 1
+        return ret
 
     def hasNext(self) -> bool:
-        return not self.q.empty()
-        
+        if self.node_index >= len(self.sorted_list):
+            return False
+        else:
+            return True
+
 
 # Your BSTIterator object will be instantiated and called as such:
 # obj = BSTIterator(root)
