@@ -1,23 +1,13 @@
 class Solution:
-    def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
-        new_start, new_end = newInterval[0], newInterval[1]
-        index, n = 0, len(intervals)
-        output = []
+    def moveZeroes(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        zero_counter = 0
 
-        while index < n and intervals[index][0] < new_start:
-            output.append(intervals[index])
-            index += 1
-        
-        if not output or output[-1][1] < newInterval[0]:
-            output.append(newInterval)
-        else:
-            output[-1][1] = max(output[-1][1], newInterval[1])
-
-        while index < n:
-            if intervals[index][0] <= output[-1][1]:
-                output[-1][1] =  max(output[-1][1], intervals[index][1])
+        for i in range(len(nums)):
+            if nums[i] == 0:
+                zero_counter += 1
             else:
-                output.append(intervals[index])
-            index += 1
-
-        return output
+                if zero_counter > 0:
+                    nums[i - zero_counter], nums[i] = nums[i], nums[i - zero_counter]
