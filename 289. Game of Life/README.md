@@ -8,9 +8,9 @@
 
 ## Solution 2
 
-For simultaneously updating each cell, we set cells which will be living in next round as 2, and cells which will be dead in the next round as -1. So we can update all cells without caring about the updating order
+For simultaneously updating each cell, we set cells which will be living in next round as -1, and cells which will be dead in the next round as 2. So we can update all cells without caring about the updating order
 
-* Time Complexity: O(N)
+* Time Complexity: O(MN), M = the number of rows, N = the number of cols
 
 * Space Complexity: O(1)
 
