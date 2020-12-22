@@ -11,3 +11,11 @@
 * Time Complexity: O(N^2), where N is the length of given subarray.
 
 * Space Complexity: O(1)
+
+## Solution 3 -- Binary Search
+
+TODO:
+
+* Time Complexity: O(NlogN), where N is the length of given subarray.
+
+* Space Complexity: O(N)
