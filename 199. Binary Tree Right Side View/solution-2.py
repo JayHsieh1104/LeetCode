@@ -1,30 +1,32 @@
 # Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def rightSideView(self, root: TreeNode) -> List[int]:
+        if not root:
+            return []
 
-from collections import deque
+        ret = []
+        queue = collections.deque()
+        queue.append(root)
+        curr_depth = 0
 
-class Solution(object):
-    def rightSideView(self, root):
-        rightmost_value_at_depth = dict() # dictionary for storing (depth, rightmost value)
-        max_depth = -1
-        
-        queue = deque([(root, 0)]) # stack for DFS search
         while queue:
-            node, depth = queue.popleft()
-            
-            if node is not None:
-                # maintain knowledge of the number of levels in the tree
-                max_depth = max(max_depth, depth)
-                
-                # overwrite rightmost value when visiting the nodes at the current depth
-                rightmost_value_at_depth[depth] = node.val
-                
-                queue.append((node.left, depth + 1))
-                queue.append((node.right, depth + 1))
-                
-        return [rightmost_value_at_depth[depth] for depth in range(max_depth+1)]
-            
+            n = len(queue)
+            curr_depth += 1
+            for i in range(n):
+                curr_node = queue.popleft()
+                if len(ret) == curr_depth:
+                    ret[curr_depth - 1] = curr_node.val
+                else:
+                    ret.append(curr_node.val)
+
+                if curr_node.left:
+                    queue.append(curr_node.left)
+                if curr_node.right:
+                    queue.append(curr_node.right)
+
+        return ret
