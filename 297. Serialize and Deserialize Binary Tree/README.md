@@ -5,11 +5,3 @@
 * Time Complexity: O(N), where N is the number of total nodes in the tree.
 
 * Space Complexity: O(N)
-
-## Solution 2 BFS
-
-TODO:
-
-* Time Complexity: O(N), where N is the number of total nodes in the tree.
-
-* Space Complexity: O(N)
