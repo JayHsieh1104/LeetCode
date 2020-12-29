@@ -7,21 +7,20 @@
 
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        def __init__(self):
-            self.ans = None
-        
-        def recurse_tree(current_node: 'TreeNode') -> 'boolean':
-            if current_node == None:
+        self.ans = None
+
+        def has_target(curr_node):
+            if curr_node == None:
                 return False
-            
-            mid = current_node.val == p.val or current_node.val == q.val
-            left = recurse_tree(current_node.left)
-            right = recurse_tree(current_node.right)
-            
+
+            mid = curr_node == p or curr_node == q
+            left = has_target(curr_node.left)
+            right = has_target(curr_node.right)
+
             if mid + left + right == 2:
-                self.ans = current_node
-            
+                self.ans = curr_node
+
             return mid or left or right
-        
-        recurse_tree(root)
-        return self.ans            
+
+        has_target(root)
+        return self.ans
