@@ -6,33 +6,27 @@
 #         self.right = right
 class Solution:
     def zigzagLevelOrder(self, root: TreeNode) -> List[List[int]]:
-        if not root:
+        if root == None:
             return []
         
-        isLeftToRight = True
-        stack = [root]
         ret = []
+        isLeftToRight = True
+        queue = collections.deque([root])
         
-        while stack:
-            temp_stack = []
-            ret.append([])
+        while queue:
+            level_list = []
+            n = len(queue)
+            for _ in range(n):
+                curr_node = queue.popleft()
+                level_list.append(curr_node.val)
+                if curr_node.left:
+                    queue.append(curr_node.left)
+                if curr_node.right:
+                    queue.append(curr_node.right)
             if isLeftToRight:
-                for i in range(len(stack)):
-                    current_node = stack.pop()
-                    ret[-1].append(current_node.val)
-                    if current_node.left:
-                        temp_stack.append(current_node.left)
-                    if current_node.right:
-                        temp_stack.append(current_node.right)
+                ret.append(level_list)
             else:
-                for i in range(len(stack)):
-                    current_node = stack.pop()
-                    ret[-1].append(current_node.val)
-                    if current_node.right:
-                        temp_stack.append(current_node.right)
-                    if current_node.left:
-                        temp_stack.append(current_node.left)
-            stack = temp_stack
+                ret.append(level_list[::-1])
             isLeftToRight = not isLeftToRight
-            
+        
         return ret
