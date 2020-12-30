@@ -10,7 +10,7 @@ class Solution:
         if root:
             root.left, root.right = self.invertTree(root.right), self.invertTree(root.left)
             """
-			if you write the above sentence as follow, this will cause wrong answer 
+			if you write the following code, this will cause wrong answer 
 			because the two node should exchange at the same time
 				root.left = self.invertTree(root.right)
 				root.right = self.invertTree(root.left)
