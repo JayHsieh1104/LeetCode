@@ -1,4 +1,4 @@
-# 112. 124. Binary Tree Maximum Path Sum
+# 124. Binary Tree Maximum Path Sum
 
 ## Solution 1 -- Recursion
 
