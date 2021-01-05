@@ -6,12 +6,12 @@
 class Solution:
     def reverseList(self, head: ListNode) -> ListNode:
         prev_pointer = None
-        cur_pointer = head
+        curr_pointer = head
         
-        while(cur_pointer != None):
-            next_pointer = cur_pointer.next
-            cur_pointer.next = prev_pointer
-            prev_pointer = cur_pointer
-            cur_pointer = next_pointer
+        while(curr_pointer != None):
+            next_pointer = curr_pointer.next
+            curr_pointer.next = prev_pointer
+            prev_pointer = curr_pointer
+            curr_pointer = next_pointer
         
         return prev_pointer
