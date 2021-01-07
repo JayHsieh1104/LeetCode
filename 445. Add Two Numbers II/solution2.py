@@ -4,27 +4,31 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
-        stack1 = []
-        while l1:
-            stack1.append(l1)
-            l1 = l1.next
+    def reverseList(self, head: ListNode) -> ListNode:
+        prev_node = None
+        while head:
+            next_node = head.next
+            head.next, prev_node = prev_node, head
+            head = next_node
             
-        stack2 = []
-        while l2:
-            stack2.append(l2)
-            l2 = l2.next
+        return prev_node
+    
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        l1 = self.reverseList(l1)
+        l2 = self.reverseList(l2)
             
         dummyHead = ListNode(0)
         carry = 0
         
-        while stack1 or stack2:
-            if stack1:
-                x = stack1.pop().val
+        while l1 or l2:
+            if l1:
+                x = l1.val
+                l1 = l1.next
             else:
                 x = 0
-            if stack2:
-                y = stack2.pop().val
+            if l2:
+                y = l2.val
+                l2 = l2.next
             else:
                 y = 0
             sum = x + y + carry
