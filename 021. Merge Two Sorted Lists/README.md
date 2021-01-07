@@ -1,6 +1,6 @@
 # 021. Merge Two Sorted Lists
 
-## Solution 1
+## Solution 1 -- Two Pointers
 
 Use two pointers to build the list iteratively.
 
@@ -8,9 +8,9 @@ Use two pointers to build the list iteratively.
 
 * Space Complexity: O(1)
 
-## Solution 2 
+## Solution 2 -- Recursion
 
-Build the list recursively. The idea is that recursively go to the bottom of the list. Then build the new list from the bottom to top. 
+Build the list recursively. The idea is that recursively go to the bottom of the list. Then build the new list from the bottom to top.
 
 * Time Complexity: O(N + M)
 
