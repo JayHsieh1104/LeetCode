@@ -8,8 +8,6 @@
 
 ## Solution 2 -- Recursion
 
-TODO:
-
 * Time Complexity: O(N)
 
 * Space Complexity: O(N)

@@ -5,31 +5,28 @@
 #         self.next = next
 class Solution:
     def reverseBetween(self, head: ListNode, m: int, n: int) -> ListNode:
-        if m == n:
-            return head
+        if not head:
+            return None
         
-        cnt = 0
-        dummyHead = ListNode(0, head)
-        pointer = dummyHead
+        prev, curr = None, head
         
-        while cnt < m - 1:
-            cnt += 1
-            pointer = pointer.next
+        while m > 1:
+            prev, curr = curr, curr.next
+            m, n = m - 1, n - 1
+        
+        unReversedTail, reversedHead = prev, curr
+        
+        while n > 0:
+            temp = curr.next
+            curr.next = prev
+            prev, curr = curr, temp
+            n -= 1
             
-        start_node = pointer
-        end_node = pointer.next
-        prev_node = pointer.next
-        pointer = prev_node.next
-        cnt += 2
+        if unReversedTail:
+            unReversedTail.next = prev
+        else:
+            head = prev
         
-        while True:
-            next_node = pointer.next
-            pointer.next = prev_node
-            if cnt == n:
-                start_node.next = pointer
-                end_node.next = next_node
-                return dummyHead.next
-            else:
-                prev_node = pointer
-                pointer = next_node
-                cnt += 1
+        reversedHead.next = curr
+            
+        return head
