@@ -5,17 +5,20 @@
 #         self.next = next
 class Solution:
     def mergeKLists(self, lists: List[ListNode]) -> ListNode:
-        mList = []
-        for i in range(len(lists)):
-            while lists[i] != None:
-                mList.append(lists[i].val)
-                lists[i] = lists[i].next
+        nodes = []
         
-        mList.sort()
+        for list in lists:
+            while list:
+                nodes.append(list.val)
+                list = list.next
+        
+        nodes.sort()
+        
         dummyHead = ListNode()
-        pointer = dummyHead
-        for num in mList:
-            pointer.next = ListNode(num)
-            pointer = pointer.next
-            
+        curr = dummyHead
+        
+        for node in nodes:
+            curr.next = ListNode(node)
+            curr = curr.next
+        
         return dummyHead.next

@@ -4,27 +4,20 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def mergeKLists(self, lists: List[ListNode]) -> ListNode:        
-        dummyHead = ListNode()
-        pointer = dummyHead
-
-        isAllVisited = False
-        while not isAllVisited:
-            isAllVisited = True
-            for i in range(len(lists)):
-                if lists[i] != None:
-                    isAllVisited = False
-                    nextNum = (lists[i].val, i)
-                    break
-            
-            for i in range(len(lists)):
-                if lists[i] == None:
-                    continue
-                else:
-                    if lists[i].val < nextNum[0]:
-                        nextNum = (lists[i].val, i)
-            pointer.next = ListNode(nextNum[0])
-            pointer = pointer.next
-            lists[nextNum[1]] = lists[nextNum[1]].next
+    def mergeKLists(self, lists: List[ListNode]) -> ListNode:
+        dummyHead = ListNode(0)
+        curr = dummyHead
         
+        while True:
+            min_node = (math.inf, 0)
+            for i in range(len(lists)):
+                if lists[i] and lists[i].val < min_node[0]:
+                    min_node = (lists[i].val, i)
+            if min_node[0] == math.inf:
+                break
+            curr.next = lists[min_node[1]]
+            lists[min_node[1]] = lists[min_node[1]].next
+            curr = curr.next
+        
+        curr.next = None
         return dummyHead.next
