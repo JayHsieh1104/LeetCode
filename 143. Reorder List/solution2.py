@@ -3,29 +3,32 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
-from collections import deque
-
 class Solution:
     def reorderList(self, head: ListNode) -> None:
-        if not head:
-            return head
-        
+        """
+        Do not return anything, modify head in-place instead.
+        """
+        if head == None:
+            return None
+            
         stack = []
-        cnt = 0
-        pointer = head
-        while pointer != None:
-            stack.append(pointer.val)
-            cnt += 1
-            pointer = pointer.next
+        ptr = head
         
-        while cnt > 2:
-            next_node = ListNode(stack.pop())
-            next_node.next = head.next
-            head.next = next_node
-            head = head.next.next
-            cnt -= 2
+        while ptr:
+            temp = ptr.next
+            ptr.next = None
+            stack.append(ptr)
+            ptr = temp
         
-        if cnt == 2:
-            head.next.next = None
-        else:
-            head.next = None
+        dummyHead = ListNode()
+        ptr = dummyHead
+        while len(stack) > 1:
+            ptr.next = stack.pop(0)
+            ptr = ptr.next
+            ptr.next = stack.pop()
+            ptr = ptr.next
+
+        if stack:
+            ptr.next = stack.pop()
+        
+        return dummyHead.next

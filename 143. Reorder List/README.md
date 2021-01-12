@@ -12,18 +12,8 @@
 
 * Space Complexity: O(N)
 
-## Solution 3 -- List
-
-TODO:
+## Solution 3 -- Reverse +　Merge
 
 * Time Complexity: O(N)
 
-* Space Complexity: O(N)
-
-## Solution 4 -- Split the list into two sub list
-
-TODO:
-
-* Time Complexity: O(N)
-
-* Space Complexity: O(N)
+* Space Complexity: O(1)
