@@ -1,8 +1,6 @@
 # 430. Flatten a Multilevel Doubly Linked List
 
-## Solution 1
-
-Iteratively solve the problem
+## Solution 1 -- Stack
 
 * Time Complexity: O(N)
 
