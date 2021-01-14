@@ -10,4 +10,10 @@
 
 * Time Complexity: O(N)
 
+* Space Complexity: O(N)
+
+## Solution 3 -- Inorder Simulation
+
+* Time Complexity: O(N)
+
 * Space Complexity: O(logN)
