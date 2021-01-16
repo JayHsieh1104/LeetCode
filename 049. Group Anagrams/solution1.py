@@ -1,10 +1,11 @@
 class Solution:
-    def groupAnagrams(self, strs):
-        ret = collections.defaultdict(list)
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        group = collections.defaultdict(list)
         
-        for mStr in strs:
-            alpha_set = [0] * 26
-            for ch in mStr:
-                alpha_set[ord(ch) - ord('a')] += 1
-            ret[tuple(alpha_set)].append(mStr)
-        return ret.values()
+        for str in strs:
+            char_counter = [0] * 26
+            for char in str:
+                char_counter[ord(char) - ord('a')] += 1
+            group[tuple(char_counter)].append(str)
+        
+        return group.values()
