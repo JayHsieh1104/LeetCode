@@ -4,7 +4,7 @@
 
 * Time Complexity:
   * Put: O(1)
-  * Update: O(K), need to find the key value pair in the bucket
-  * Delete: O(K), need to find the key value pair in the bucket
+  * Update: O(N/K), where N is the number of all possible keys and K is the number of buckets.
+  * Delete: O(N/K)
 
-* Space Complexity: O(N+K), N is the number of key value pair put in the hashmap. K the number of the hash collision occured.
+* Space Complexity: O(K + M), where K is the number of predefined buckets in the hashmap and M is the number of unique keys that have been inserted into the hashmap.
