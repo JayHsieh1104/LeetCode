@@ -1,16 +1,16 @@
-from collections import defaultdict
-
 class Solution:
-    def zero(self):
-        return 0
-
     def subdomainVisits(self, cpdomains: List[str]) -> List[str]:
-        mDict = defaultdict(self.zero)
-        for domain in cpdomains:
-            times = int(domain.split(' ', 1)[0])
-            subdomains = domain.split(' ', 1)[1].split('.')
-            for i in range(len(subdomains)):
-                subdomain = '.'.join(subdomains[i:])
-                mDict[subdomain] += times
+        subdomain_dict = collections.defaultdict(int)
         
-        return [ '{} {}'.format(times, subdomain) for subdomain, times in mDict.items()]
+        for cpdomain in cpdomains:
+            cpdomain = cpdomain.split(" ", 1)
+            times = cpdomain[0]
+            domains = cpdomain[1].split(".")
+            
+            curr_domain = ""
+            for i in range(len(domains) - 1, -1, -1):
+                curr_domain = domains[i] + curr_domain
+                subdomain_dict[curr_domain] += int(times)
+                curr_domain = "." + curr_domain
+                
+        return ['{} {}'.format(times, subdomain) for subdomain, times in subdomain_dict.items()]
