@@ -1,16 +1,22 @@
-class Solution:
-    def longestStrChain(self, words: List[str]) -> int:
-        dp = {}
-        longest_length = 1
+class Logger:
+
+    def __init__(self):
+        self.timestamps = {}
         
-        for word in sorted(words, key=len):
-            dp[word] = 1
+
+    def shouldPrintMessage(self, timestamp: int, message: str) -> bool:
+        """
+        Returns true if the message should be printed in the given timestamp, otherwise returns false.
+        If this method returns false, the message will not be printed.
+        The timestamp is in seconds granularity.
+        """
+        if message in self.timestamps and self.timestamps[message] > timestamp:
+            return False
+        else:
+            self.timestamps[message] = timestamp + 10
+            return True
             
-            for i in range(len(word)):
-                prev_word = word[:i] + word[i+1:]
-                
-                if prev_word in dp:
-                    dp[word] = max(dp[prev_word] + 1, dp[word])
-                    longest_length = max(dp[word], longest_length) 
-        
-        return longest_length
+
+# Your Logger object will be instantiated and called as such:
+# obj = Logger()
+# param_1 = obj.shouldPrintMessage(timestamp,message)
