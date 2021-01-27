@@ -8,9 +8,10 @@ class Solution:
                 n = n // 10  
             return next_num
         
-        seen = set()
-        while n != 1 and n not in seen: 
-            seen.add(n)
-            n = getNext(n)
+        slow_runner = n
+        fast_runner = getNext(n)
+        while fast_runner != 1 and slow_runner != fast_runner: 
+            slow_runner = getNext(slow_runner)
+            fast_runner = getNext(getNext(fast_runner))
         
-        return n == 1
+        return fast_runner == 1
